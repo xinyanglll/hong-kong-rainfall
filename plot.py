@@ -41,7 +41,9 @@ def main():
 
     print(f"{DATA.name}: {len(table)} rows.")
     print(f"The first row: {table[0]}")
-
+    print(f"One value: {table[0][3]}")
+    print(f"Type: {type(table[0][3])}")
+    
     days = []
     values = []
 
