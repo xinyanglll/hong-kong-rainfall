@@ -1,34 +1,30 @@
-# The phenomenon
+# Hong Kong Rainfall
 
-<!-- This is the SD5913 assignment 2 template. Everything in this file is yours to
-replace, and the check counts words: comments like this one are not words, so
-delete each one as you write. Start with the heading: name the phenomenon.
-
-Then, in this order, at least 150 words in total.
-
-New to folders, paths, or the files here whose names start with a dot? Read
-https://github.com/sd5913/pfad/blob/2026/reference/files.md first. Ten minutes. -->
-
-![what the picture is](out/plot.png)
+![Daily rainfall in Hong Kong in 2026](out/hong-kong-rainfall.png)
 
 ## The phenomenon
 
-<!-- What goes up and down, and why you looked at it. -->
+Rainfall in Hong Kong changes significantly from day to day. Some days have no measurable rainfall, while other days can receive a large amount of rain. I chose rainfall because it is a familiar part of everyday life in Hong Kong and because changes in rainfall can be clearly represented through numbers. I wanted to see how a simple sequence of daily measurements could become a visual pattern.
+
+The dataset records daily total rainfall at the Hong Kong Observatory in 2026. By plotting the values in chronological order, I can see when rainfall increases, decreases, or reaches a particularly high level. This makes the invisible pattern of rainfall easier to notice than reading the numbers in a table.
 
 ## The source
 
-<!-- A link to the page or endpoint the file came from, and one line on what is in
-the file: how many rows, what a row means, what the units are. -->
+The data comes from the Hong Kong Observatory's open data service:
+
+https://data.weather.gov.hk/weatherAPI/cis/csvfile/HKO/2026/daily_HKO_RF_2026.csv
+
+The file contains 243 data rows. Each row represents one day and records the year, month, day, daily total rainfall, and data completeness. Rainfall is measured in millimetres (mm).
 
 ## What the picture shows
 
-<!-- Two or three sentences. Including what it hides: every transformation throws
-something away, and naming what yours threw away is the easiest way to sound like
-you know what you did. -->
+The picture shows daily total rainfall as a line across the available days of 2026. Higher points represent days with more rainfall, while points at zero represent days without measurable rainfall. The line makes changes and peaks in rainfall easier to see as a continuous pattern.
+
+The picture hides some information from the original dataset. It does not show the data completeness field, the exact calendar dates as labels, or the original text values and source formatting. It also skips values recorded as "Trace" or missing values, so the picture does not represent every original entry.
 
 ## Run it
 
-```
+```text
 uv run fetch.py
 uv run plot.py
 ```

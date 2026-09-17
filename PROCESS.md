@@ -1,15 +1,9 @@
 # Process
 
-<!-- Same as assignment 1, same honesty. Which tools you used and for what; one
-thing you kept and why it was good; one thing you rejected and why it was wrong.
-"I did not use any" is fine if it is true.
+I used VS Code and PowerShell to edit, run, and commit the project. I used Python with the csv and matplotlib libraries to read the Hong Kong Observatory rainfall data and create the visualisation.
 
-If a model wrote most of plot.py, which is likely and allowed, the interesting part
-is what you had to correct: did it invent a column name, use pandas where a list
-would do, silently drop the rows it could not parse? -->
+I also used AI assistance to help me understand the assignment requirements, organise the code, and troubleshoot errors. One thing I kept was the basic line-chart approach because it provides a simple way to show how daily rainfall changes over time. I kept the data reading structure but adapted it to the rainfall CSV format.
 
-## Tools
+One thing I rejected was the original temperature visualisation from the template. It was designed for daily mean temperature, so it did not match my rainfall dataset. I replaced the temperature-specific file name, labels, units, and handling of values such as "Trace" with rainfall-specific code.
 
-## Kept
-
-## Rejected
+During the process, the AI-generated code initially failed because some rainfall values were recorded as "Trace" rather than numbers. I corrected the code to skip "Trace" and missing values before converting the remaining values to floats.
