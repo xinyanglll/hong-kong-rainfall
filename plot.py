@@ -61,7 +61,7 @@ def main():
 
     ax.plot(days, values, linewidth=1.5)
 
-    ax.set_xlabel("day")
+    ax.set_xlabel("day of 2026")
     ax.set_ylabel("daily rainfall (mm)")
     ax.set_title("Hong Kong Observatory — Daily Rainfall in 2026")
 
