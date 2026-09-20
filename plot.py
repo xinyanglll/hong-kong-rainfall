@@ -6,6 +6,7 @@ uv run plot.py
 """
 
 # /// script
+# requires-python = ">=3.10"
 # dependencies = [
 #   "matplotlib",
 # ]
@@ -13,8 +14,10 @@ uv run plot.py
 
 import csv
 from pathlib import Path
+import datetime as dt
 
 import matplotlib.pyplot as plt
+
 
 FILE = "hko-daily-total-rainfall-2026.csv"
 PICTURE = "hong-kong-rainfall.png"
@@ -41,30 +44,40 @@ def main():
 
     print(f"{DATA.name}: {len(table)} rows.")
     print(f"The first row: {table[0]}")
-    print(f"One value: {table[0][3]}")
-    print(f"Type: {type(table[0][3])}")
-    
-    days = []
+
+    dates = []
     values = []
 
-    for i, (year, month, day, value, quality) in enumerate(table):
+    for year, month, day, value, quality in table:
         if value in ("***", "Trace"):
             continue
 
-        days.append(i + 1)
+        dates.append(
+            dt.date(int(year), int(month), int(day))
+        )
         values.append(float(value))
 
     print(f"{len(values)} rainfall values")
     print(f"from {min(values)} to {max(values)} mm")
 
-    fig, ax = plt.subplots(figsize=(10, 4))
+    fig, ax = plt.subplots(figsize=(12, 5))
 
-    ax.plot(days, values, linewidth=1.5)
+    ax.plot(
+        dates,
+        values,
+        linewidth=1.5
+    )
 
-    ax.set_xlabel("day of 2026")
+    ax.set_xlabel("date")
     ax.set_ylabel("daily rainfall (mm)")
     ax.set_title("Hong Kong Observatory — Daily Rainfall in 2026")
 
+    ax.grid(
+        axis="y",
+        alpha=0.2
+    )
+
+    fig.autofmt_xdate()
     fig.tight_layout()
 
     OUT.mkdir(exist_ok=True)
